@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Dashu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<div id="balloons" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main>
+  <header class="hero">
+    <h1 id="title" aria-label="Happy Birthday, Dad"></h1>
+    <p class="sub" id="sub"></p>
+    <p class="cue">Scroll down and make a wish ↓</p>
+  </header>
+
+  <section>
+    <h2>Make a wish</h2>
+    <p class="lead">Tap the flames, or blow them all out at once.</p>
+    <svg class="cake" viewBox="0 0 300 270" role="img" aria-label="Birthday cake with five lit candles">
+      <ellipse cx="150" cy="250" rx="140" ry="14" fill="#0a1230"/>
+      <rect x="36" y="168" width="228" height="76" rx="14" fill="#ff8a6b"/>
+      <path d="M36 182q19 18 38 0t38 0 38 0 38 0 38 0 38 0v-6H36z" fill="#fff6e0"/>
+      <rect x="62" y="116" width="176" height="56" rx="12" fill="#7ee0c3"/>
+      <path d="M62 128q15 14 29 0t29 0 29 0 29 0 29 0 29 0v-6H62z" fill="#fff6e0"/>
+      <circle cx="90" cy="214" r="5" fill="#ffc857"/><circle cx="150" cy="222" r="5" fill="#ffc857"/><circle cx="210" cy="214" r="5" fill="#ffc857"/>
+      <g id="candles"></g>
+    </svg>
+    <button class="btn" id="blow">Blow out the candles</button>
+    <div id="msg" aria-live="polite"></div>
+  </section>
+
+  <section>
+    <h2>Why you’re the best</h2>
+    <p class="lead">A few of the reasons, and there are many more.</p>
+    <ul class="why" id="why"></ul>
+  </section>
+
+  <footer>
+    <span id="closing"></span>
+    <small id="from"></small>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
