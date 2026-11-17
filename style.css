@@ -1,0 +1,56 @@
+:root{
+  --night:#101a3a; --night2:#1b2a5c; --gold:#ffc857; --balloon:#e63946;
+  --mint:#7ee0c3; --paper:#fff6e0; --coral:#ff8a6b;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root{--night:#101a3a}}
+:root[data-theme="dark"]{--night:#101a3a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(120% 90% at 50% 0%,var(--night2),var(--night) 65%) fixed var(--night);
+  color:var(--paper);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+.stars{position:fixed;inset:0;pointer-events:none}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--paper);animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+#balloons{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.b{position:absolute;bottom:-120px;width:54px;height:66px;border-radius:50% 50% 48% 48%;
+  animation:rise linear infinite;opacity:.92}
+.b::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:60px;background:rgba(255,246,224,.4)}
+@keyframes rise{0%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(24px,-60vh) rotate(4deg)}
+  100%{transform:translate(-10px,-125vh) rotate(-3deg)}}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:5}
+main{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 24px}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(3rem,13vw,7.5rem);line-height:.95;margin:0;letter-spacing:-.02em}
+h1 .l{display:inline-block;opacity:0;transform:translateY(-120%) rotate(-12deg);animation:drop .8s cubic-bezier(.2,1.4,.4,1) forwards}
+h1 .name{color:var(--gold);font-style:italic;font-weight:600}
+@keyframes drop{to{opacity:1;transform:none}}
+.sub{margin:28px 0 0;font-size:1.15rem;max-width:34ch;opacity:0;animation:drop .8s 1.4s forwards}
+.cue{margin-top:36px;opacity:0;animation:drop .8s 1.8s forwards;color:var(--gold);font-size:.95rem}
+section{padding:56px 0}
+h2{font-family:Fraunces,Georgia,serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 8px;text-align:center}
+.lead{text-align:center;margin:0 0 28px;opacity:.85}
+.cake{display:block;width:min(340px,86vw);margin:0 auto;overflow:visible}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:fl .35s ease-in-out infinite alternate;cursor:pointer}
+@keyframes fl{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.88,1.15) rotate(3deg)}}
+.flame.out{animation:none;transform:scale(0);transition:transform .25s}
+.smoke{opacity:0;transform-box:fill-box}
+.smoke.on{animation:sm 1.6s ease-out forwards}
+@keyframes sm{0%{opacity:.7;transform:translateY(0) scaleX(1)}100%{opacity:0;transform:translateY(-40px) scaleX(2)}}
+.glow{animation:gl 1.2s ease-in-out infinite alternate;transition:opacity .4s}
+@keyframes gl{from{opacity:.25}to{opacity:.5}}
+.btn{display:block;margin:28px auto 0;padding:14px 28px;border:0;border-radius:999px;background:var(--gold);color:#2a1c00;
+  font:500 1rem "DM Sans",sans-serif;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 0 #c9962c}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #c9962c}
+.btn:focus-visible,.flame:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+#msg{text-align:center;min-height:3.4em;margin-top:22px;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:1.4rem;color:var(--gold)}
+ul.why{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+ul.why li{padding:16px 20px;border-left:4px solid var(--mint);background:rgba(255,246,224,.06);border-radius:0 12px 12px 0}
+footer{text-align:center;padding:40px 0 64px;font-family:Fraunces,Georgia,serif;font-size:1.3rem}
+footer small{display:block;margin-top:8px;font:400 .9rem "DM Sans",sans-serif;opacity:.7}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+  #balloons,.stars{display:none}
+}
